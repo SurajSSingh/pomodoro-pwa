@@ -1,16 +1,17 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   const numberOfSecond: number = 5;
   let canNotify: boolean = false;
+
+  onMount(() => {
+    canNotify = Notification.permission === "granted" ? true : false;
+  });
 
   function getNotify(){
     alert("Hello");
     Notification.requestPermission().then((value) => {
-      if(value === "granted"){
-        canNotify = true;
-      }
-      else {
-        canNotify = false;
-      }
+      canNotify = value === "granted" ? true : false;
     })
   }
 
