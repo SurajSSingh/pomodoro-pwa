@@ -5,7 +5,14 @@
   let canNotify: boolean = false;
 
   onMount(() => {
+    if(!("Notification" in window)){
+      alert("This browser does not support notifications!");
+      return;
+    }
     canNotify = Notification.permission === "granted" ? true : false;
+    if(canNotify){
+      const notification = new Notification("Welcome!");
+    }
   });
 
   function getNotify(){
