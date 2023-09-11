@@ -7,9 +7,8 @@ export default defineConfig({
   plugins: [
     svelte(),
     VitePWA({ 
-      registerType: 'autoUpdate' , 
-      strategies: 'injectManifest',
-      filename: "service-worker.js"
+      // strategies: 'injectManifest',
+      // filename: "sw.js",
     })
   ],
   base: "/pomodoro-pwa/",
