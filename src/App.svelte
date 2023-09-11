@@ -9,15 +9,16 @@
       alert("This browser does not support notifications!");
       return;
     }
-    canNotify = Notification.permission === "granted" ? true : false;
+    canNotify = window.Notification.permission === "granted" ? true : false;
     if(canNotify){
       const notification = new Notification("Welcome!");
     }
+    
   });
 
   function getNotify(){
     alert("Hello");
-    Notification.requestPermission().then((value) => {
+    window.Notification.requestPermission().then((value) => {
       canNotify = value === "granted" ? true : false;
     })
   }
